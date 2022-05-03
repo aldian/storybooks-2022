@@ -3,7 +3,6 @@ provider "google" {
   project     = var.gcp_project_id
   region      = "us-central1"
   zone        = "us-central1-c"
-  version     = "~> 3.38"
 }
 
 # IP ADDRESS
@@ -33,7 +32,7 @@ resource "google_compute_firewall" "allow_http" {
 
 # OS IMAGE
 data "google_compute_image" "cos_image" {
-  family  = "cos-81-lts"
+  family  = "cos-97-lts"
   project = "cos-cloud"
 }
 

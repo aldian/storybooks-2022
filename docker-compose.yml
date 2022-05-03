@@ -14,7 +14,7 @@ services:
     depends_on:
       - mongo
   mongo:
-    image: mongo:3.6-xenial
+    image: mongo:5.0.6-focal
     environment:
       - MONGO_INITDB_DATABASE=storybooks
     ports:

@@ -1,7 +1,6 @@
 provider "mongodbatlas" {
   public_key  = var.mongodbatlas_public_key
   private_key = var.mongodbatlas_private_key
-  version     = "~> 0.6"
 }
 
 # cluster
@@ -13,7 +12,7 @@ resource "mongodbatlas_cluster" "mongo_cluster" {
   replication_factor           = 3
   provider_backup_enabled      = true
   auto_scaling_disk_gb_enabled = true
-  mongo_db_major_version       = "3.6"
+  mongo_db_major_version       = "5.0"
 
   //Provider Settings "block"
   provider_name               = "GCP"
@@ -36,7 +35,7 @@ resource "mongodbatlas_database_user" "mongo_user" {
 }
 
 # ip whitelist
-resource "mongodbatlas_project_ip_whitelist" "test" {
+resource "mongodbatlas_project_ip_access_list" "test" {
   project_id = var.atlas_project_id
   ip_address = google_compute_address.ip_address.address
 }
